@@ -10,13 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
         integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-    </script>
 
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBXMwjPDPH3NY7aPjXWODllH86j4D84lU&callback=initMap" async></script>
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
@@ -26,23 +25,13 @@
 
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBXMwjPDPH3NY7aPjXWODllH86j4D84lU&callback=initMap" async></script>
     @livewireStyles
 </head>
 
 <body>
 
-    <section class="footer" style="clear:both">
-
-
-        <div class="credit"><b>frenol <span>Site</b></span></div>
-        <div class="footer-links">
-        quik links
-        <h4>About us</h4>
-        <h4>shop us</h4>
-        <h4>Copyright</h3>
-        </div>
-
-    </section>
 
     <style>
         .about-section .images {
@@ -78,16 +67,10 @@
         }
 
         .box-container .images {
-          
+
             margin-right: 0px;
             margin-top: 0px;
             overflow-x: hidden;
-        }
-
-        .footer {
-
-            background-color: #A9CCE3;
-
         }
 
         .carousel-item {
@@ -99,35 +82,39 @@
 
         }
 
-         .section-title {
+        .section-title {
 
-   background-color: #ECF0F1 ;
-
-  
-  
-         }
+            background-color: #ECF0F1;
 
 
-         .section-title p{
-          
-        margin-right: 100px;
-        margin-left: 100px;
-         }
-        
-        .section-title h4{
-     
-        margin-right: 100px;
-        margin-left: 100px;
-         }
- .section-title .contan{
-color: #2E4053;
-display: flex;
-margin-left: 100px;
- }
 
- .servive{
-background-color: #F9F9F9;
- }
+        }
+
+
+        .section-title p {
+
+            margin-right: 100px;
+            margin-left: 100px;
+        }
+
+        .section-title h4 {
+
+            margin-right: 100px;
+            margin-left: 100px;
+        }
+
+        .section-title .contan {
+            color: #2E4053;
+            display: flex;
+            margin-left: 100px;
+        }
+
+        .servive {
+            background-color: #F9F9F9;
+        }
+        .servive .servive-container{
+        margin-left: 10px;
+        }
         .section-title .images {
             text-align: center;
 
@@ -139,6 +126,83 @@ background-color: #F9F9F9;
             background-position: center !important;
         }
 
+        .servive {
+            background-color: #F7ECDE;
+        }
+            .text-center {
+                text-align: center;
+            }
+
+            #map {
+               
+                width: 100%;
+                height: 400px;
+            }
+
+        .contact h3 {
+            font-size: 250%;
+            align-items: center;
+            text-align: center;
+            color: #141E61;
+        }
+
+        .contact h5 {
+            
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact_us{
+            margin-left: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit ,minmax(10rem, 1fr));
+            gap: 2rem;
+            
+        }
+
+        .send{
+            margin-top: 10px;
+            text-align: center;
+        }
+        .contact_us .container{
+            color: green;
+           
+            
+        }
+        .container .mapping{
+            float: right;
+        }
+        .form-row .cont {
+            background-color: #F7ECDE;
+            margin-bottom: 20px
+        }
+
+        .service-container {
+            display: inline-block !important;
+            margin-left: 10px;
+            min-height: 100px;
+
+        }
+        .header {
+
+            margin-right: 30px;
+            float: right;
+        }
+        .header li {
+            
+           margin-left: 30px;
+           
+        }
+        .footer {
+
+            background-color: #F7F7F7;
+            margin-top:20px;
+            background-image: url("storage/images/back.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+     
+            }
         .footer .credit {
             text-align: center;
             padding-top: 5px;
@@ -153,77 +217,24 @@ background-color: #F9F9F9;
             padding: 0;
         }
 
-        .home .swiper-slide {
-            text-align: center;
-            padding: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-size: cover !important;
-            background-position: center !important;
-            min-height: 500px;
-
+        .footer-links{
+                display: grid;
+                grid-template-columns: repeat(auto-fit ,minmax(10rem, 1fr));
+                gap: 3rem;
+                margin-left: 20px;
+        }
+        .links h3{
+        color: #161D6F;
         }
 
-        .home .swiper-slide .content {
-            width: 500px;
-            display: inline-block;
-
-        }
-
-        .home .swiper-slide .content span {
-            color: rgb(194, 20, 20);
-            font-size: 100%;
-            padding-bottom: 50px;
-            animation: fadeIn .4s linear backwards .2s;
-        }
-
-        .home .swiper-slide-active .content {
-            display: inline-block;
-        }
-
-        .home .swiper-slide .content h3 {
-            color: orange;
-            font-size: 300%;
-            text-transform: uppercase;
-            line-height: 1;
-            text-shadow: 5px;
-            animation: fadeIn .4s linear backwards .4s;
-        }
-
-        .home .swiper-slide .content .btn {
-            animation: fadeIn .4s linear backwards .6s;
-        }
-
-        .home .swiper-button-next,
-        .home .swiper-button-prev {
-            top: inherit;
-            left: inherit;
-            bottom: 0;
-            right: 0;
-            background: white;
-            color: black;
-            height: 30px;
-            width: 50px;
-        }
-
-        .home .swiper-button-next:hover,
-        .home .swiper-button-prev:hover {
-            background: red;
-        }
-
-        .home .swiper-button-next::after,
-        .home .swiper-button-prev::after {
-            font-size: 100%
-        }
-
-        .home .swiper-button-prev {
-            right: inherit;
-
-        }
+        .links h4{
+        color: #161616;
+        }       
     </style>
 
     @livewireScripts
+
+
 </body>
 
 </html>

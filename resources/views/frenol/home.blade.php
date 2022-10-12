@@ -1,6 +1,9 @@
 @extends('master')
 @extends('layouts.app')
+
 @section('content')
+@include('frenol/header')
+
     <div id="carouselExampleCrossfade" class="carousel slide carousel-fade" data-mdb-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="0" class="active"
@@ -44,6 +47,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
     <!-- about section -->
     <div class="about-section">
         <div class="about-header">
@@ -78,9 +82,9 @@
 
     <div class="section-title">
         <!--   <div class="images">
-                           <img src="{{ URL('storage/images/pic9.jpg') }}" alt="" title="" width="250" height="250">
+                                       <img src="{{ URL('storage/images/pic9.jpg') }}" alt="" title="" width="250" height="250">
 
-                        </div>-->
+                                    </div>-->
 
         <h4>We are trusted across kenya and Africa at large, with over 10 years experience.</h4>
 
@@ -115,28 +119,155 @@
 
     </div>
     <div class="servive">
+    <div class="servive-container">
         <h4>Our Tailored & Bespoke</h4><span>Solution</span>
         <p>Frenol technologies help STARTUPs & MSME to build their BRAND. We specialised in MAR-TECH (Marketing &
             Technology) solutions & services and give end to
             end solutions & services required for their growth and provide access to all services starting from Consulting,
             Strategy planning, Technology implementation
             and Data Analytics. We are Providing services of Website Development, Mobile App Development, Digital Marketing,
-            Artificial Intelligence, Machine Learning & Image Processing.
-        <div class="service-container">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ URL('storage/images/planning.png') }}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">POS</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">learn more</a>
+            Artificial Intelligence, Machine Learning & Image Processing.</p>
+</div>
+        @foreach ($services as $service)
+            <div class="service-container">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ $service->image }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $service->title }}</h5>
+                        <p>{{ $service->description }}</p>
+                        <a href="{{ $service->link }}" class="btn btn-primary">learn more</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <div class="partners">
+        <h3>Our partners</h3>
+        <p>As an endorsement of the Fintech that Frenol technology is, the company has received several industry
+            certifications and awards over the years.</p>
+
+    </div>
+
+    <div class="contact">
+        <h5>Contact us</h5>
+        <h3>We are ready serve you</h3>
+        <div class="contact_us">
+
+            <form action="{{ route('mail') }}" method="get">
+             @csrf
+                <div class="form-row">
+                    <div class="col-12 cont">
+                        <input type="text" class="form-control" placeholder="Full name">
+                    </div>
+                    <div class="col-12 cont">
+                        <input type="number" class="form-control" placeholder="phone number">
+                    </div>
+                    <div class="col-12 cont">
+                        <input type="email" class="form-control" placeholder="Email Address">
+
+                    </div>
+                    <div class="form-outline">
+                        <textarea class="form-control " id="textAreaExample1" rows="8" cols="8"></textarea>
+                        <label class="form-label" for="textAreaExample">Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-info send">
+                        {{ __('send message') }}
+                    </button>
+
+                </div>
+            </form>
+            <div class="container">
+            
+                <div class="row">
+                    <div class="mapping">
+                        
+                          <div id="map">
+
+                          </div>
+
+                    </div>
+                    <h1>official Address</h1>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="partners">
-    <h3>Our partners</h3>
-    <p>As an endorsement of the Fintech that Frenol technology is, the company has received several industry certifications and awards over the years.</p>
     </div>
+    <script>
+            let map, activeInfoWindow, markers = [];
+
+            /* ----------------------------- Initialize Map ----------------------------- */
+            function initMap() {
+                map = new google.maps.Map(document.getElementById("map"), {
+                    center: {
+                        lat: -1.286389,
+                        lng: 36.817223,
+                    },
+                    zoom: 15
+                });
+
+                map.addListener("click", function(event) {
+                    mapClicked(event);
+                });
+
+                initMarkers();
+            }
+
+            /* --------------------------- Initialize Markers --------------------------- */
+            function initMarkers() {
+                const initialMarkers = <?php echo json_encode($initialMarkers); ?>;
+
+                for (let index = 0; index < initialMarkers.length; index++) {
+
+                    const markerData = initialMarkers[index];
+                    const marker = new google.maps.Marker({
+                        position: markerData.position,
+                        label: markerData.label,
+                        draggable: markerData.draggable,
+                        map
+                    });
+                    markers.push(marker);
+
+                    const infowindow = new google.maps.InfoWindow({
+                        content: `<b>${markerData.position.lat}, ${markerData.position.lng}</b>`,
+                    });
+                    marker.addListener("click", (event) => {
+                        if(activeInfoWindow) {
+                            activeInfoWindow.close();
+                        }
+                        infowindow.open({
+                            anchor: marker,
+                            shouldFocus: false,
+                            map
+                        });
+                        activeInfoWindow = infowindow;
+                        markerClicked(marker, index);
+                    });
+
+                    marker.addListener("dragend", (event) => {
+                        markerDragEnd(event, index);
+                    });
+                }
+            }
+
+            /* ------------------------- Handle Map Click Event ------------------------- */
+            function mapClicked(event) {
+                console.log(map);
+                console.log(event.latLng.lat(), event.latLng.lng());
+            }
+
+            /* ------------------------ Handle Marker Click Event ----------------------- */
+            function markerClicked(marker, index) {
+                console.log(map);
+                console.log(marker.position.lat());
+                console.log(marker.position.lng());
+            }
+
+            /* ----------------------- Handle Marker DragEnd Event ---------------------- */
+            function markerDragEnd(event, index) {
+                console.log(map);
+                console.log(event.latLng.lat());
+                console.log(event.latLng.lng());
+            }
+    </script>
+    @include('frenol/footer')
 @endsection

@@ -18,12 +18,13 @@ use App\Http\Controllers\FrenolController;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return redirect('frenol');
 });
 Auth::routes();
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [FrenolController::class, 'index'])->name('home');
+
+Route::get('/frenol', [FrenolController::class, 'index'])->name('frenol');
 Route::get('about', [FrenolController::class, 'about'])->name('about');
+Route::get('mail', [FrenolController::class, 'info'])->name('mail');
 
 
-
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
