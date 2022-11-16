@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class EnquiryEmail extends Mailable
 {
     use Queueable, SerializesModels;
-    
+
     public $data;
 
     /**
@@ -31,7 +31,7 @@ class EnquiryEmail extends Mailable
      */
     public function build()
     {
-        $dataname=$this->data['name'];
-        return $this->subject('enquiry' .$this->data['name'])->view('frenol/mail');
+        
+        return $this->subject('enquiry')->view('frenol/mail');
     }
 }

@@ -24,7 +24,7 @@ Auth::routes();
 
 Route::get('/frenol', [FrenolController::class, 'index'])->name('frenol');
 Route::get('about', [FrenolController::class, 'about'])->name('about');
-Route::get('mail', [FrenolController::class, 'info'])->name('mail');
+Route::post('mail', [FrenolController::class, 'info'])->name('mail');
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

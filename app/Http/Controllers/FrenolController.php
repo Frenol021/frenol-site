@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Mail;
 class FrenolController extends Controller
 {
     //
-    
+
 
     public function index(){
         $initialMarkers = [
@@ -53,16 +53,19 @@ class FrenolController extends Controller
 
     public function info(Request $request){
 
-        
-       
+
+
         $name = $request->get('name');
-        dd($name);
+
         $phone = $request->get('phone');
+
         $email = $request->get('email');
+
         $message = $request->get('message');
 
+
         $data = [
-            "name" => "hello shiftech  i am $name  and  im equiring $message and this are my credentials phone: $phone and Email: $email",
+            "name" => "hello frenol  i am  $name  and  im equiring $message and this are my credentials phone: $phone and Email: $email",
         ];
 
         Mail::to("defrenol021@gmail.com")->send(new EnquiryEmail($data));

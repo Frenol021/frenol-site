@@ -13,7 +13,7 @@
             <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="2"
                 aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner back">
             <div class="carousel-item active">
                 <img src="{{ URL('storage/images/pic3.jpg') }}" class="d-block w-100 " alt="Wild Landscape" />
                 <div class="carousel-caption d-none d-md-block">
@@ -120,18 +120,13 @@
     </div>
     <div class="servive">
     <div class="servive-container">
-        <h4>Our Tailored & Bespoke</h4><span>Solution</span>
-        <p>Frenol technologies help STARTUPs & MSME to build their BRAND. We specialised in MAR-TECH (Marketing &
-            Technology) solutions & services and give end to
-            end solutions & services required for their growth and provide access to all services starting from Consulting,
-            Strategy planning, Technology implementation
-            and Data Analytics. We are Providing services of Website Development, Mobile App Development, Digital Marketing,
-            Artificial Intelligence, Machine Learning & Image Processing.</p>
-</div>
+        <h4>Our Tailored & Bespoke</h4>
+
+    </div>
         @foreach ($services as $service)
             <div class="service-container">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ $service->image }}" alt="Card image cap">
+                <div class="card" style="width: 18rem; ">
+                    <img class="card-img-top" src="{{ asset('storage/'.$service->image) }}" alt="Card image cap" height="50%">
                     <div class="card-body">
                         <h5 class="card-title">{{ $service->title }}</h5>
                         <p>{{ $service->description }}</p>
@@ -153,21 +148,21 @@
         <h3>We are ready serve you</h3>
         <div class="contact_us">
 
-            <form action="{{ route('mail') }}" method="get">
+            <form action="{{ route('mail') }}" method="post">
              @csrf
                 <div class="form-row">
                     <div class="col-12 cont">
-                        <input type="text" class="form-control" placeholder="Full name">
+                        <input type="text" class="form-control" placeholder="Full name" name ="name">
                     </div>
                     <div class="col-12 cont">
-                        <input type="number" class="form-control" placeholder="phone number">
+                        <input type="number" class="form-control" placeholder="phone number" name = "phone">
                     </div>
                     <div class="col-12 cont">
-                        <input type="email" class="form-control" placeholder="Email Address">
+                        <input type="email" class="form-control" placeholder="Email Address" name ="email">
 
                     </div>
                     <div class="form-outline">
-                        <textarea class="form-control " id="textAreaExample1" rows="8" cols="8"></textarea>
+                        <textarea class="form-control " id="textAreaExample1" rows="8" cols="8" name ="message"></textarea>
                         <label class="form-label" for="textAreaExample">Message</label>
                     </div>
                     <button type="submit" class="btn btn-info send">
@@ -177,10 +172,10 @@
                 </div>
             </form>
             <div class="container">
-            
+
                 <div class="row">
                     <div class="mapping">
-                        
+
                           <div id="map">
 
                           </div>

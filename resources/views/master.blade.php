@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
         integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -34,6 +34,7 @@
 
 
     <style>
+
         .about-section .images {
             text-align: center;
 
@@ -87,7 +88,6 @@
             background-color: #ECF0F1;
 
 
-
         }
 
 
@@ -114,6 +114,12 @@
         }
         .servive .servive-container{
         margin-left: 10px;
+        margin-bottom: 100px;
+        }
+
+        .servive .servive-container h4{
+        color: red;
+        text-align: center;
         }
         .section-title .images {
             text-align: center;
@@ -128,17 +134,19 @@
 
         .servive {
             background-color: #F7ECDE;
-        }
+            margin-top: 100px;        }
             .text-center {
                 text-align: center;
             }
 
             #map {
-               
+
                 width: 100%;
                 height: 400px;
             }
-
+        .contact{
+        margin-top: 100px;
+        }
         .contact h3 {
             font-size: 250%;
             align-items: center;
@@ -147,7 +155,7 @@
         }
 
         .contact h5 {
-            
+
             align-items: center;
             text-align: center;
         }
@@ -157,7 +165,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit ,minmax(10rem, 1fr));
             gap: 2rem;
-            
+
         }
 
         .send{
@@ -166,8 +174,8 @@
         }
         .contact_us .container{
             color: green;
-           
-            
+
+
         }
         .container .mapping{
             float: right;
@@ -186,12 +194,26 @@
         .header {
 
             margin-right: 30px;
-            float: right;
+
+
         }
         .header li {
-            
+
            margin-left: 30px;
-           
+
+        }
+        .nav-tabs .nav-link1{
+            text-decoration: none;
+            position: absolute;
+            z-index: 1;
+            display: none;
+        }
+        .nav-tabs:hover .nav-link1 {
+        display: block;
+        list-style-type: none;
+        position: absolute;
+
+
         }
         .footer {
 
@@ -201,7 +223,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-     
+
             }
         .footer .credit {
             text-align: center;
@@ -229,7 +251,7 @@
 
         .links h4{
         color: #161616;
-        }       
+        }
     </style>
 
     @livewireScripts

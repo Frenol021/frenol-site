@@ -40,7 +40,7 @@ class ServiceResource extends Resource
                 //
                 TextColumn::make('image'),
                 TextColumn::make('title'),
-                TextColumn::make('description'),
+                TextColumn::make('description')->limit(length:30),
                 TextColumn::make('link')
 
             ])
@@ -54,14 +54,14 @@ class ServiceResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -69,5 +69,5 @@ class ServiceResource extends Resource
             'create' => Pages\CreateService::route('/create'),
             'edit' => Pages\EditService::route('/{record}/edit'),
         ];
-    }    
+    }
 }
