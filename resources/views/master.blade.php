@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>...</title>
+    <title> style</title>
     <link rel="stylesheet"href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
@@ -27,17 +28,19 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBXMwjPDPH3NY7aPjXWODllH86j4D84lU&callback=initMap" async></script>
+
     @livewireStyles
+
 </head>
 
 <body>
+
 
 
     <style>
 
         .about-section .images {
             text-align: center;
-
             display: flex;
             float: right;
             justify-content: center;
@@ -123,7 +126,6 @@
         }
         .section-title .images {
             text-align: center;
-
             display: flex;
             float: left;
             justify-content: center;
@@ -193,13 +195,15 @@
         }
         .header {
 
-            margin-right: 30px;
-
-
+           display: flex;
+           justify-content: flex-end;
+           text-align: center;
+          margin-right: 30px;
         }
         .header li {
 
-           margin-left: 30px;
+           margin-left: 80px;
+            justify-content:space-between;
 
         }
         .nav-tabs .nav-link1{
@@ -207,13 +211,12 @@
             position: absolute;
             z-index: 1;
             display: none;
+            color: black;
         }
         .nav-tabs:hover .nav-link1 {
-        display: block;
+        display: flex;
         list-style-type: none;
         position: absolute;
-
-
         }
         .footer {
 
@@ -225,6 +228,7 @@
             background-attachment: fixed;
 
             }
+
         .footer .credit {
             text-align: center;
             padding-top: 5px;
@@ -238,6 +242,7 @@
         .home {
             padding: 0;
         }
+
 
         .footer-links{
                 display: grid;

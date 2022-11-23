@@ -24,7 +24,7 @@
 <li class=""><a href="#">Blogs</a>
 
 </li>
-<li class=""><a href="about">Shop</a></li>
+<li class=""><a href="shop">Shop</a></li>
 
 <li class=""><a href="#">Contact us</a></li>
 </ul>
